@@ -1,0 +1,10 @@
+# Ambiente do CTAB-GAN+ (.venv-ctabgan) — Python 3.12
+# numpy/pandas/scipy/scikit-learn fixados: o CTAB-GAN+ quebra com NumPy 2 e versões novas
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.13.1
+scikit-learn==1.5.2
+six
+tqdm
+# torch sem versão: depende da GPU/driver do PC (rodar com GPU; na CPU fica muito lento)
+torch

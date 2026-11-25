@@ -1,0 +1,6 @@
+# Ambiente do Tab-PE (.venv-tabpe) — Python 3.12
+# Instalar ANTES o código do modelo:  uv pip install -e modelos/DPSDA
+numpy
+POT
+tqdm
+torch

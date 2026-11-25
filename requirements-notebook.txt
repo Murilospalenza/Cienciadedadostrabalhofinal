@@ -1,0 +1,7 @@
+# Extras do ambiente do notebook / evaluate.py (.venv dentro de Cluster-Medoid-Leakage-Attack)
+# Instalar junto com o requirements.txt do próprio repositório
+ipykernel
+ipywidgets
+ucimlrepo
+tqdm
+scikit-learn
