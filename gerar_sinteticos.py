@@ -23,7 +23,7 @@ p = argparse.ArgumentParser()
 p.add_argument("--model", choices=["ctabgan", "tabpe"], required=True)
 p.add_argument("--dataset", required=True)
 p.add_argument("--base", default=str(Path.home() / "cmla_trabalho"))
-p.add_argument("--epochs", type=int, default=300)      # CTAB-GAN+
+p.add_argument("--epochs", type=int, default=150)      # CTAB-GAN+ (150 = padrão da biblioteca, como no artigo)
 p.add_argument("--epsilon", type=float, default=1.0)   # Tab-PE
 p.add_argument("--iters", type=int, default=30)        # Tab-PE (precisa ser > 5)
 p.add_argument("--n-syn", type=int, default=0)         # Tab-PE; 0 = mesmo tamanho do real
@@ -35,7 +35,8 @@ args = p.parse_args()
 BASE = Path(args.base)
 SAIDA = BASE / "sinteticos"
 SAIDA.mkdir(parents=True, exist_ok=True)
-sufixo = "ctabgan" if args.model == "ctabgan" else f"tabpe_eps{args.epsilon:g}"
+sufixo = (f"ctabgan_ep{args.epochs}" if args.model == "ctabgan"
+          else f"tabpe_eps{args.epsilon:g}" + (f"_n{args.n_syn}" if args.n_syn else ""))
 destino = SAIDA / f"{args.dataset}_{sufixo}.csv"
 if destino.exists() and not args.force:
     print(f"{destino.name} já existe, pulando")
